@@ -1,0 +1,33 @@
+summary(judge.glm.step)
+#逐步回归后的模型
+
+Call:
+glm(formula = judge ~ hsd010 + dlq140 + kiq480 + mcq240l + sld012 + 
+    slq050 + slq120 + smq895 + dr1tnumf, family = binomial(link = "logit"), 
+    data = train)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.1438  -0.9912  -0.6027   1.0550   2.1248  
+
+Coefficients:
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  2.888e+02  4.696e+03   0.061    0.951    
+hsd010       3.549e-01  5.010e-02   7.084 1.40e-12 ***    //General health condition
+dlq140      -3.291e-01  3.957e-02  -8.316  < 2e-16 ***    //How often do you feel depressed?
+kiq480       2.399e-01  3.780e-02   6.348 2.18e-10 ***    //How many times urinate in night?
+mcq240l     -6.256e+00  1.021e+02  -0.061    0.951        //Age when leukemia first diagnosed
+sld012      -4.368e-02  2.816e-02  -1.551    0.121        //Sleep hours
+slq050      -4.335e-01  9.506e-02  -4.560 5.11e-06 ***    //Ever told doctor had trouble sleeping?
+slq120       2.466e-01  3.898e-02   6.328 2.48e-10 ***    //How often feel overly sleepy during day?
+dr1tnumf    -4.457e-02  7.913e-03  -5.633 1.78e-08 ***    //Number of foods/beverages reported 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 3463.1  on 2504  degrees of freedom
+Residual deviance: 3048.1  on 2494  degrees of freedom
+AIC: 3070.1
+
+Number of Fisher Scoring iterations: 15
