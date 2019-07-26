@@ -1,0 +1,84 @@
+predict.auc@y.values
+[[1]]
+[1] 0.7341039
+
+summary(judge.glm.step)
+#逐步回归后的模型
+
+Call:
+glm(formula = judge ~ hsd010 + diq275 + dlq140 + kiq480 + 
+    sld012 + slq050 + slq120 + dr1tnumf + dr1tm221 + dr1ip182, 
+    family = binomial(link = "logit"), data = train)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.2403  -0.9946  -0.6180   1.0643   2.0612  
+
+Coefficients:
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  3.080e+02  7.058e+03   0.044  0.96520    
+hsd010       3.750e-01  4.904e-02   7.647 2.06e-14 ***      #General health condition
+diq275       8.912e-02  5.879e-02   1.516  0.12952          #Past year Dr checked for A1C(measures your average level of blood sugar)
+dlq140      -3.210e-01  3.930e-02  -8.169 3.10e-16 ***      #How often do you feel depressed?
+kiq480       2.096e-01  3.736e-02   5.609 2.03e-08 ***      #How many times urinate in night?
+sld012      -7.320e-02  2.796e-02  -2.618  0.00884 **       #Sleep hours
+slq050      -4.151e-01  9.575e-02  -4.335 1.46e-05 ***      #Ever told doctor had trouble sleeping?
+slq120       2.019e-01  3.890e-02   5.190 2.11e-07 ***      #How often feel overly sleepy during day?
+dr1tnumf    -4.138e-02  7.950e-03  -5.205 1.94e-07 ***      #Number of foods/beverages reported 
+dr1tm221     9.083e-01  5.971e-01   1.521  0.12819          #(Docosenoic) (gm)
+dr1ip182     1.695e-08  6.285e-09   2.696  0.00701 **       #(Octadecadienoic) (gm)
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 3465.0  on 2504  degrees of freedom
+Residual deviance: 3053.4  on 2493  degrees of freedom
+AIC: 3077.4
+
+Number of Fisher Scoring iterations: 15
+
+---------------------------------------------------------------------------------
+
+summary(judge.glm)
+#原模型
+
+Call:
+glm(formula = judge ~ ., family = binomial(link = "logit"), data = train)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.2801  -0.9881  -0.6138   1.0683   2.0794  
+
+Coefficients:
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  3.134e+02  7.458e+03   0.042  0.96648    
+seqn        -6.284e-06  1.531e-05  -0.411  0.68140    
+cdq001       1.889e-02  9.983e-02   0.189  0.84991    
+hsd010       3.762e-01  4.959e-02   7.585 3.33e-14 ***
+diq275       8.684e-02  5.871e-02   1.479  0.13911    
+dbq229      -4.538e-02  5.057e-02  -0.897  0.36954    
+dlq140      -3.189e-01  3.958e-02  -8.058 7.76e-16 ***
+kiq480       2.093e-01  3.788e-02   5.526 3.28e-08 ***
+mcq170k     -6.560e-02  1.329e-01  -0.494  0.62149    
+mcq240l     -6.780e+00  1.621e+02  -0.042  0.96665    
+sld012      -7.235e-02  2.825e-02  -2.561  0.01043 *  
+slq050      -4.203e-01  9.694e-02  -4.336 1.45e-05 ***
+slq120       2.034e-01  3.907e-02   5.207 1.92e-07 ***
+smq895       4.366e-03  1.376e-02   0.317  0.75097    
+dr1tnumf    -4.027e-02  8.000e-03  -5.034 4.79e-07 ***
+dr1tm221     8.155e-01  6.035e-01   1.351  0.17659    
+drd350cq     2.724e-01  2.610e-01   1.044  0.29647    
+dr2.320z    -4.693e-05  4.279e-05  -1.097  0.27270    
+dr1dbih.y   -2.065e-09  5.153e-09  -0.401  0.68871    
+dr1ip182     1.679e-08  6.293e-09   2.667  0.00764 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 3465.0  on 2504  degrees of freedom
+Residual deviance: 3049.4  on 2485  degrees of freedom
+AIC: 3089.4
+
+Number of Fisher Scoring iterations: 15
